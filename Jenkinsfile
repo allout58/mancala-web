@@ -1,18 +1,12 @@
 pipeline {
   agent {
-    node {
-      label 'docker'
+    docker {
+      image 'cypress/base:10''
     }
 
   }
   stages {
     stage('Install') {
-      agent {
-        docker {
-          image 'cypress/base:10'
-        }
-
-      }
       steps {
         sh 'yarn install'
       }
